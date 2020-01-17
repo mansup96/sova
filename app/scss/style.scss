@@ -1,0 +1,284 @@
+@import "vars";
+@import "libs";
+@import "fonts";
+@import "global";
+
+.fixed {
+  z-index: 1000;
+  position: fixed;
+}
+.logo {
+  width: 13%;
+  margin: 2% 0 0 2%;
+  cursor: pointer;
+}
+.nav {
+  margin-right: 2%;
+  right: 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  ul :last-child {
+    margin-bottom: 0;
+  }
+  li {
+    list-style-type: none;
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 30px;
+    a {
+      color: $white;
+      transition: 0.2s;
+      font-size: 24px;
+      font-weight: 900;
+      display: flex;
+      align-items: center;
+      text-transform: uppercase;
+      .circle {
+        margin-left: 22px;
+        & path {
+          transition: 0.2s;
+          fill: $white;
+        }
+      }
+      &:hover {
+        color: grey;
+        fill: grey;
+      }
+      &:hover path {
+        fill: grey;
+      }
+    }
+  }
+}
+.nav li a.btn-active {
+  color: $accent;
+}
+.nav li a .circle path.fill-circle {
+  fill: rgb(50, 108, 199);
+}
+.main {
+  background: url(../img/main-bcgr.jpg) no-repeat;
+  align-items: center;
+  .title {
+    margin-left: 22%;
+    .row1 {
+      font-size: 57px;
+      line-height: 100%;
+      text-transform: uppercase;
+    }
+    .row2 {
+      font-size: 124px;
+      font-weight: 900;
+      line-height: 100%;
+      text-transform: uppercase;
+    }
+    .sub-title {
+      font-size: 32px;
+      line-height: 140%;
+      margin-top: 40px;
+      font-weight: 300;
+    }
+  }
+}
+.about-us {
+  background: url(../img/about-us-bcgr.jpg) no-repeat;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  .text {
+    text-align: center;
+    width: 56%;
+    font-weight: 300;
+    font-size: 32px;
+    line-height: 45px;
+    margin-top: 45px;
+  }
+}
+.services {
+  background: url(../img/services-bcgr.jpg) no-repeat;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  .serv-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 42%;
+    margin-top: 80px;
+    .serv-item {
+      width: 25%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 0 30px 60px;
+      outline: none;
+      cursor: pointer;
+      &:hover circle {
+        fill: $white;
+      }
+      &:hover path {
+        fill: $accent;
+      }
+      svg {
+        circle {
+          fill: $accent;
+          transition: 0.2s;
+        }
+        path {
+          fill: $white;
+          transition: 0.2s;
+        }
+      }
+      .serv-title {
+        text-align: center;
+        margin-top: 40px;
+        font-weight: 900;
+        font-size: 20px;
+        line-height: 140%;
+        text-transform: uppercase;
+      }
+    }
+  }
+}
+.career {
+  background: url(../img/career-bcgr.jpg) no-repeat;
+  justify-content: center;
+  padding: 6% 6%;
+  .career-img {
+    width: 28%;
+    margin-right: 40px;
+    img {
+      width: 100%;
+      margin-bottom: 40px;
+    }
+    form {
+      display: flex;
+      justify-content: space-between;
+      .btn-tertiary {
+        color: $white;
+        padding: 0;
+        width: 58%;
+        display: block;
+				border: 2px solid $yellow;
+				border-radius: 3px;
+        font-weight: 600;
+        font-size: 18px;
+				line-height: 160%;
+				text-transform: uppercase;
+				transition: 0.2s;
+      }
+      .btn-tertiary:hover,
+      .example-2 .btn-tertiary:focus {
+        color: $main;
+        background-color: $yellow;
+      }
+      .input-file {
+        width: 0.1px;
+        height: 0.1px;
+        opacity: 0;
+        overflow: hidden;
+        position: absolute;
+        z-index: -1;
+      }
+      .input-file + .js-labelFile {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        padding: 15px 0;
+        cursor: pointer;
+        text-align: center;
+      }
+      .button {
+				width: 37%;
+				border-radius: 3px;
+				border: 0;
+				outline: none;
+				background-color: $yellow;
+				color: $main;
+				transition: 0.2s;
+				cursor: pointer;
+				font-weight: 600;
+        font-size: 18px;
+				line-height: 160%;
+				text-transform: uppercase;
+			}
+			.button:hover,
+      .button:focus {
+        background-color: $white;
+      }
+    }
+  }
+  .career-content {
+    width: 38%;
+    font-weight: 300;
+    font-size: 24px;
+    line-height: 120%;
+    .slide-title {
+      align-items: flex-start;
+      margin-bottom: 40px;
+    }
+    .fw-500 {
+      font-weight: 500;
+    }
+    a {
+      display: block;
+			color: $accent;
+			transition: 0.1s;
+		}
+		a:hover {
+			color: $yellow;
+		}
+  }
+}
+
+.slide-title {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-transform: uppercase;
+  &::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 2px;
+    background-color: #cfcfcf;
+    margin: 20px 0 0 0;
+    border-radius: 3px;
+  }
+  h1 {
+    font-weight: 900;
+    font-size: 38px;
+    line-height: 38px;
+  }
+}
+.slide-wrapper {
+  height: 100vh;
+  width: 100%;
+  overflow-y: hidden;
+  position: relative;
+  z-index: 0;
+}
+.slide {
+  display: flex;
+  height: 0;
+  width: 100%;
+  background-size: 100% 100%;
+  position: absolute;
+  color: $white;
+  top: 100%;
+  left: 0;
+  overflow-y: hidden;
+}
+
+.active {
+  height: 100%;
+  transition: top 0.4s;
+  display: flex;
+  top: 0;
+  left: 0;
+}
+
+@import "media";
+@import "modal";
