@@ -36,7 +36,7 @@ slides.forEach(element => {
   zIndex++;
 });
 
-menuItems.forEach((elem, index) => {
+menuItems.forEach(elem => {
   elem.addEventListener("click", () => {
     let attr = elem.getAttribute("link-to");
     let curSlide = document.querySelector(`.slide[name='${attr}']`);
@@ -47,9 +47,9 @@ menuItems.forEach((elem, index) => {
       )
         slide.classList.add("to-top");
     });
-    clear(curSlide);
-    navItemColorChange(elem, index, curSlide);
+    sortToBottom(curSlide);
     activeSlide = curSlide.style.zIndex;
+    navItemColorChange(curSlide);
   });
 });
 
@@ -57,55 +57,80 @@ menuItems.forEach((elem, index) => {
 function addHandler(object, event, handler) {
   if (object.addEventListener) {
     object.addEventListener(event, handler, false);
-  } else if (object.attachEvent) {
-    object.attachEvent("on" + event, handler);
+    // } else if (object.attachEvent) {
+    //   object.attachEvent("on" + event, handler);
   } else alert("Обработчик не поддерживается");
+}
+function removeHandler(object, event, handler) {
+  object.removeEventListener(event, handler, false);
 }
 // Добавляем обработчики для разных браузеров
 addHandler(window, "DOMMouseScroll", wheel);
-addHandler(window, "mousewheel", wheel);
-// addHandler(document, "mousewheel", wheel);
+// addHandler(window, "mousewheel", wheel);
+addHandler(document, "mousewheel", wheel);
 // Функция, обрабатывающая событие
 function wheel(event) {
-  var delta; // Направление колёсика мыши
+  let delta; // Направление колёсика мыши
   event = event || window.event;
-  // // Opera и IE работают со свойством wheelDelta
-  // if (event.wheelDelta) {
-  //   // В Opera и IE
-  delta = event.wheelDelta / 120;
-  //   // В Опере значение wheelDelta такое же, но с противоположным знаком
-  //   if (window.opera) delta = -delta; // Дополнительно для Opera
-  // } else if (event.detail) {
-  //   // Для Gecko
-  //   delta = -event.detail / 3;
-  // }
+  // Opera и IE работают со свойством wheelDelta
+  if (event.wheelDelta) {
+    // В Opera и IE
+    delta = event.wheelDelta / 120;
+    // В Опере значение wheelDelta такое же, но с противоположным знаком
+    if (window.opera) delta = -delta; // Дополнительно для Opera
+  } else if (event.detail) {
+    // Для Gecko
+    delta = -event.detail / 3;
+  }
   // Запрещаем обработку события браузером по умолчанию
   if (delta < 0 && activeSlide < slides.length - 1) {
-      activeSlide++;
-      console.log(slides.length);
-      slides[activeSlide].classList.add("to-top");
+    activeSlide++;
+    slides[activeSlide].classList.add("to-top");
+    blurNavItem();
+    focusNavItem();
+		stopItPlease()
   }
   if (delta > 0 && activeSlide > 0) {
     slides[activeSlide].classList.remove("to-top");
     activeSlide--;
-    console.log(activeSlide);
+    blurNavItem();
+    if (activeSlide !== 0) {
+      focusNavItem();
+		}
+		stopItPlease()
   }
 }
+function stopItPlease() {
+	removeHandler(window, "DOMMouseScroll", wheel);
+	removeHandler(document, "mousewheel", wheel);
+	setTimeout(() => {
+		addHandler(window, "DOMMouseScroll", wheel);
+		addHandler(document, "mousewheel", wheel);
+	}, 400);
+}
 
-function navItemColorChange(elem, index, curSlide) {
+
+function navItemColorChange(curSlide) {
+  blurNavItem();
+  if (curSlide.getAttribute("name") !== "main") {
+    focusNavItem();
+  }
+}
+function blurNavItem() {
   menuItems.forEach(item => {
     item.classList.remove("btn-active");
   });
   circles.forEach(item => {
     item.classList.remove("fill-circle");
   });
-  if (curSlide.getAttribute("name") !== "main") {
-    elem.classList.add("btn-active");
-    circles[index - 1].classList.add("fill-circle");
-  }
 }
 
-function clear(curSlide) {
+function focusNavItem() {
+  menuItems[activeSlide].classList.add("btn-active");
+  circles[activeSlide - 1].classList.add("fill-circle");
+}
+
+function sortToBottom(curSlide) {
   slides.forEach(item => {
     if (item.style.zIndex > curSlide.style.zIndex) {
       item.classList.remove("to-top");
