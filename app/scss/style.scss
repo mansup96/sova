@@ -15,9 +15,12 @@
 .nav {
   margin-right: 2%;
   right: 0;
-  height: 100%;
+  position: absolute;
+  top: 35%;
   display: flex;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
   ul :last-child {
     margin-bottom: 0;
   }
@@ -34,16 +37,16 @@
       display: flex;
       align-items: center;
       text-transform: uppercase;
+      cursor: pointer;
       .circle {
         margin-left: 22px;
-        & path {
-          transition: 0.2s;
+        path {
           fill: $white;
+          transition: 0.2s;
         }
       }
       &:hover {
         color: grey;
-        fill: grey;
       }
       &:hover path {
         fill: grey;
@@ -51,6 +54,8 @@
     }
   }
 }
+// .to-bottom {
+// }
 .nav li a.btn-active {
   color: $accent;
 }
@@ -236,8 +241,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-	justify-content: center;
-	padding: 40px 0 0 0;
+  justify-content: center;
+  padding: 40px 0 0 0;
   .org-list {
     display: flex;
     flex-wrap: wrap;
@@ -291,7 +296,8 @@
         flex-direction: column;
         align-items: center;
         img {
-          width: 40%;
+					width: 40%;
+					margin-bottom: 20px;
         }
         p {
           text-align: center;
@@ -304,6 +310,9 @@
     }
   }
 }
+.commerc {
+  background: url(../img/kp-bcgr.jpg) no-repeat;
+}
 .contacts {
   color: $white;
   font-size: 18px;
@@ -314,7 +323,9 @@
     width: 100%;
     background-color: #303136cf;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
     .contact-info-container {
       width: 68%;
       max-width: 1300px;
@@ -342,8 +353,8 @@
         transition: 0.2s;
         &:hover {
           color: $accent;
-				}
-				&:hover path {
+        }
+        &:hover path {
           fill: $accent;
         }
       }
@@ -386,6 +397,14 @@
         }
       }
     }
+    .bsnsweb {
+      width: 100%;
+      background-color: #303136cf;
+      height: 19%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
   }
 }
 .slide-title {
@@ -418,22 +437,39 @@
 }
 .slide {
   display: flex;
-  height: 0;
+  height: 100%;
   width: 100%;
   background-size: 100% 100%;
   position: absolute;
   color: $white;
-  top: 100%;
+	overflow-y: hidden;
+	top: 100%;
   left: 0;
-  overflow-y: hidden;
+  animation: moveDown 0.4s;
 }
 
-.active {
+.to-top {
   height: 100%;
-  transition: top 0.4s;
   display: flex;
   top: 0;
   left: 0;
+  animation: moveUp 0.4s;
+}
+@keyframes moveUp {
+  from {
+    top: 100%;
+  }
+  to {
+    top: 0;
+  }
+}
+@keyframes moveDown {
+  from {
+    top: 0;
+  }
+  to {
+    top: 100%;
+  }
 }
 
 @import "media";

@@ -1,105 +1,116 @@
 $(function() {
-
-	document.getElementById('ajax-contact-form').addEventListener('submit', function(evt){
-    var http = new XMLHttpRequest(), f = this;
-    var th = $(this);
-    evt.preventDefault();
-    http.open("POST", "../contact.php", true);
-    http.onreadystatechange = function() {
-      if (http.readyState == 4 && http.status == 200) {
-        alert(http.responseText);
-        if (http.responseText.indexOf(f.nameFF.value) == 0) { // очистить поля формы, если в ответе первым словом будет имя отправителя (nameFF)
-          th.trigger("reset");
-        }
-      }
-    }
-    http.onerror = function() {
-      alert('Ошибка, попробуйте еще раз');
-    }
-    http.send(new FormData(f));
-  }, false);
-
-
-
-
-
-
   $(".input-file").each(function() {
     var $input = $(this),
       $label = $input.next(".js-labelFile"),
-			labelVal = $label.html();
-			
-			$input.on("change", function(element) {
-				var fileName = "";
-				if (element.target.value)
+      labelVal = $label.html();
+
+    $input.on("change", function(element) {
+      var fileName = "";
+      if (element.target.value)
         fileName = element.target.value.split("\\").pop();
-				fileName
+      fileName
         ? $label
-				.addClass("has-file")
-				.find(".js-fileName")
-				.html(fileName)
+            .addClass("has-file")
+            .find(".js-fileName")
+            .html(fileName)
         : $label.removeClass("has-file").html(labelVal);
-			});
-	});
+    });
+  });
 });
 
 let slides = document.querySelectorAll(".slide"),
   navItems = document.querySelectorAll(".nav a"),
   logo = document.querySelector(".logo"),
-  menuItem = [],
+  menuItems = [],
   circles = document.querySelectorAll(".nav a path"),
   zIndex = 0,
   activeSlide = 0;
 
 navItems.forEach(item => {
-  menuItem.push(item);
+  menuItems.push(item);
 });
-menuItem.unshift(logo);
+menuItems.unshift(logo);
 
-// logo.addEventListener("click", () => {
-//   slides[0].classList.add("active");
-//   slides[0].style.zIndex = zIndex;
-//   zIndex += 2;
-//   navItems.forEach(item => {
-//     item.style.color = "#fff";
-//   });
-//   circles.forEach(item => {
-//     item.style.fill = "#fff";
-//   });
-//   activeSlide = -0;
-// });
+slides.forEach(element => {
+  element.style.zIndex = zIndex;
+  zIndex++;
+});
 
-menuItem.forEach((elem, index) => {
+menuItems.forEach((elem, index) => {
   elem.addEventListener("click", () => {
-    slides[index].style.zIndex = zIndex;
-    slides[index].classList.add("active");
-    zIndex += 1;
-    clear(index);
-    navItemColorChange(index);
+    let attr = elem.getAttribute("link-to");
+    let curSlide = document.querySelector(`.slide[name='${attr}']`);
+    slides.forEach(slide => {
+      if (
+        slide.style.zIndex <= curSlide.style.zIndex &&
+        activeSlide <= curSlide.style.zIndex
+      )
+        slide.classList.add("to-top");
+    });
+    clear(curSlide);
+    navItemColorChange(elem, index, curSlide);
+    activeSlide = curSlide.style.zIndex;
   });
 });
 
-function navItemColorChange(index) {
-  menuItem.forEach((item, index) => {
-    if (index > 0) item.classList.remove("btn-active");
+// Функция для добавления обработчика событий
+function addHandler(object, event, handler) {
+  if (object.addEventListener) {
+    object.addEventListener(event, handler, false);
+  } else if (object.attachEvent) {
+    object.attachEvent("on" + event, handler);
+  } else alert("Обработчик не поддерживается");
+}
+// Добавляем обработчики для разных браузеров
+addHandler(window, "DOMMouseScroll", wheel);
+addHandler(window, "mousewheel", wheel);
+// addHandler(document, "mousewheel", wheel);
+// Функция, обрабатывающая событие
+function wheel(event) {
+  var delta; // Направление колёсика мыши
+  event = event || window.event;
+  // // Opera и IE работают со свойством wheelDelta
+  // if (event.wheelDelta) {
+  //   // В Opera и IE
+  delta = event.wheelDelta / 120;
+  //   // В Опере значение wheelDelta такое же, но с противоположным знаком
+  //   if (window.opera) delta = -delta; // Дополнительно для Opera
+  // } else if (event.detail) {
+  //   // Для Gecko
+  //   delta = -event.detail / 3;
+  // }
+  // Запрещаем обработку события браузером по умолчанию
+  if (delta < 0 && activeSlide < slides.length - 1) {
+      activeSlide++;
+      console.log(slides.length);
+      slides[activeSlide].classList.add("to-top");
+  }
+  if (delta > 0 && activeSlide > 0) {
+    slides[activeSlide].classList.remove("to-top");
+    activeSlide--;
+    console.log(activeSlide);
+  }
+}
+
+function navItemColorChange(elem, index, curSlide) {
+  menuItems.forEach(item => {
+    item.classList.remove("btn-active");
   });
   circles.forEach(item => {
     item.classList.remove("fill-circle");
   });
-  if (index !== 0) {
-    menuItem[index].classList.add("btn-active");
+  if (curSlide.getAttribute("name") !== "main") {
+    elem.classList.add("btn-active");
     circles[index - 1].classList.add("fill-circle");
   }
 }
 
-function clear(index) {
-  setTimeout(() => {
-    slides.forEach((item, number) => {
-      if (number !== index) {
-        item.classList.remove("active");
-      }
-    });
-  }, 400);
+function clear(curSlide) {
+  slides.forEach(item => {
+    if (item.style.zIndex > curSlide.style.zIndex) {
+      item.classList.remove("to-top");
+    }
+  });
 }
 
 //////// service modal ///////////
@@ -128,42 +139,3 @@ closers.forEach((item, ind) => {
     });
   });
 });
-
-// // Функция для добавления обработчика событий
-// function addHandler(object, event, handler) {
-//   if (object.addEventListener) {
-//     object.addEventListener(event, handler, false);
-//   } else if (object.attachEvent) {
-//     object.attachEvent("on" + event, handler);
-//   } else alert("Обработчик не поддерживается");
-// }
-// // Добавляем обработчики для разных браузеров
-// addHandler(window, "DOMMouseScroll", wheel);
-// addHandler(window, "mousewheel", wheel);
-// addHandler(document, "mousewheel", wheel);
-// // Функция, обрабатывающая событие
-// function wheel(event) {
-//   var delta; // Направление колёсика мыши
-//   event = event || window.event;
-//   // Opera и IE работают со свойством wheelDelta
-//   if (event.wheelDelta) {
-//     // В Opera и IE
-//     delta = event.wheelDelta / 120;
-//     // В Опере значение wheelDelta такое же, но с противоположным знаком
-//     if (window.opera) delta = -delta; // Дополнительно для Opera
-//   } else if (event.detail) {
-//     // Для Gecko
-//     delta = -event.detail / 3;
-//   }
-//   // Запрещаем обработку события браузером по умолчанию
-//   if (delta < 0) {
-//     slides[activeSlide].style.zIndex = zIndex;
-//     slides[activeSlide].classList.add("active");
-//     activeSlide++;
-//   }
-//   if (delta > 0) {
-//     slides[activeSlide - 1].style.zIndex = zIndex;
-//     slides[activeSlide - 1].classList.add("active");
-//     activeSlide--;
-//   }
-// }
