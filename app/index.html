@@ -433,7 +433,7 @@
             </div>
           </div>
         </div>
-        <div class="modal-wrapper asses">
+        <div class="modal-wrapper assessment">
           <div class="modal-container">
             <img class="modal-closer" src="./img/popup-closer.svg" alt="" />
             <h2 class="modal-title">
@@ -762,12 +762,17 @@
         <div class="career-img">
           <img src="./img/career-img.jpg" alt="" />
           <div class="form-group">
-            <form action="">
+            <form
+              id="ajax-contact-form"
+              action=""
+              enctype="multipart/form-data"
+              method="POST"
+            >
               <input type="file" name="file" id="file" class="input-file" />
               <label for="file" class="btn btn-tertiary js-labelFile">
                 <span class="js-fileName">Загрузить резюме</span>
               </label>
-              <input type="submit" value="Отправить" class="button"/>
+              <input type="submit" value="Отправить" class="button" />
             </form>
           </div>
         </div>
@@ -799,60 +804,224 @@
           <div class="serv-list"></div>
         </div>
       </section>
-      <section class="about-us slide">
+      <section class="accredit slide">
         <div class="slide-title">
           <h1>Аккредитации</h1>
         </div>
-        <p class="text">
-          АФ «СОВА» нацелена на улучшение бизнеса, развитие бизнес-сообщества в
-          России. Мы помогаем повышать доверие к компаниям, искать направления
-          роста и развивать человеческий капитал.
-          <br />
-          <br />
-          Качество наших услуг основано на опыте, конфиденциальности и высоких
-          профессиональных стандартах.
-          <br />
-          <br />
-          Мы работаем с 1998 года и всегда открыты для нового.
-        </p>
+        <div class="org-list">
+          <div class="org-list-item">
+            <img src="./img/sber-logo.jpg" alt="" />
+            <p>ПАО Сбербанк</p>
+          </div>
+          <div class="org-list-item">
+            <img src="./img/vtb-logo.jpg" alt="" />
+            <p>Банк ВТБ (ПАО)</p>
+          </div>
+          <div class="org-list-item">
+            <img src="./img/rsb-logo.jpg" alt="" />
+            <p>АО "Россельхозбанк"</p>
+          </div>
+          <div class="org-list-item">
+            <img src="./img/otkr-logo.jpg" alt="" />
+            <p>ПАО Банк "ФК Открытие"</p>
+          </div>
+          <div class="org-list-item">
+            <img src="./img/dom-logo.jpg" alt="" />
+            <p>ДОМ.РФ</p>
+          </div>
+          <div class="org-list-item">
+            <img src="./img/ubr-logo.jpg" alt="" />
+            <p>ПАО КБ "УБРИР"</p>
+          </div>
+          <div class="org-list-item">
+            <img src="./img/gpb-logo.jpg" alt="" />
+            <p>АО "ГазпромБанк"</p>
+          </div>
+          <div class="org-list-item">
+            <img src="./img/ob-logo.jpg" alt="" />
+            <p>АО "БАНК ОРЕНБУРГ”</p>
+          </div>
+          <div class="org-list-item">
+            <img src="./img/br-logo.jpg" alt="" />
+            <p>ОИКБ "Русь"</p>
+          </div>
+          <div class="org-list-item">
+            <img src="./img/nb-logo.jpg" alt="" />
+            <p>ПАО "НИКО-БАНК”</p>
+          </div>
+        </div>
+        <div class="membership">
+          <div class="memb-title">
+            <h2>Членство в общественных организациях и ассоциациях</h2>
+          </div>
+          <div class="memb-list">
+            <div class="memb-list-item">
+              <img src="img/tppoo.png" alt="" />
+              <p>Торгово- промышленная палата Оренбургской области</p>
+            </div>
+            <div class="memb-list-item">
+              <img src="img/tpprf.png" alt="" />
+              <p>Торгово- промышленная палата Российской Федерации</p>
+            </div>
+            <div class="memb-list-item">
+              <img src="img/sppoo.png" alt="" />
+              <p>Союз промышленников и предпринимателей Оренбургской области</p>
+            </div>
+            <div class="memb-list-item">
+              <img src="img/sadp.png" alt="" />
+              <p>
+                Совет по аудиторской деятельности при правительстве Оренбургской
+                области
+              </p>
+            </div>
+            <div class="memb-list-item">
+              <img src="img/akbo.png" alt="" />
+              <p>Ассоциация коммерческих банков Оренбуржья</p>
+            </div>
+          </div>
+        </div>
       </section>
       <section class="about-us slide">
         <div class="slide-title">
-          <h1>запрос кп</h1>
+          <h1>запрос коммерческого предложения</h1>
         </div>
-        <p class="text">
-          АФ «СОВА» нацелена на улучшение бизнеса, развитие бизнес-сообщества в
-          России. Мы помогаем повышать доверие к компаниям, искать направления
-          роста и развивать человеческий капитал.
-          <br />
-          <br />
-          Качество наших услуг основано на опыте, конфиденциальности и высоких
-          профессиональных стандартах.
-          <br />
-          <br />
-          Мы работаем с 1998 года и всегда открыты для нового.
-        </p>
+        <form
+          class="contact-form"
+          id="contact-form_1"
+          method="POST"
+          enctype="multipart/form-data"
+        >
+          <p class="contact-form__title"></p>
+          <p class="contact-form__description"></p>
+          <div class="contact-form__input-wrapper">
+            <input
+              name="name"
+              type="text"
+              class="contact-form__input contact-form__input_name"
+              placeholder="Фамилия, имя, отчество"
+            />
+            <div class="contact-form__error contact-form__error_name"></div>
+          </div>
+          <div class="contact-form__input-wrapper">
+            <input
+              name="tel"
+              type="tel"
+              class="contact-form__input contact-form__input_tel"
+              placeholder="Номер телефона"
+            />
+            <div class="contact-form__error contact-form__error_tel"></div>
+          </div>
+          <div class="contact-form__input-wrapper">
+            <input
+              type="text"
+              class="contact-form__input contact-form__input_org"
+              placeholder="Название организации"
+            />
+            <div class="contact-form__error contact-form__error_email"></div>
+          </div>
+          <div class="contact-form__input-wrapper">
+            <input
+              name="email"
+              type="email"
+              class="contact-form__input contact-form__input_email"
+              placeholder="Адрес электронной почты"
+            />
+            <div class="contact-form__error contact-form__error_email"></div>
+          </div>
+          <div class="contact-form__input-wrapper">
+            <textarea
+              name="text"
+              class="contact-form__input contact-form__text"
+              placeholder="Комментарий"
+            ></textarea>
+            <div class="contact-form__error contact-form__error_text"></div>
+          </div>
+          <div class="contact-form__input-wrapper">
+            <input
+              type="checkbox"
+              name="agreement"
+              class="contact-form__input contact-form__checkbox"
+              id="agreement"
+            />
+            <label for="agreement" class="contact-form__checkbox-label"
+              >Я <a href="#">согласен</a> на обработку персональных
+              данных</label
+            >
+            <div
+              class="contact-form__error contact-form__error_agreement"
+            ></div>
+          </div>
+          <button class="contact-form__button" type="submit">ОТПРАВИТЬ</button>
+        </form>
       </section>
-      <section class="about-us slide">
-        <div class="slide-title">
-          <h1>связь</h1>
+      <section class="contacts slide">
+        <iframe
+          src="https://yandex.ru/map-widget/v1/?um=constructor%3A968b2eaccf4874d7f3d91d60d54ad750b664f289bb2f0c93dbbc025e99db1b37&amp;source=constructor"
+          width="100%"
+          height="100%"
+          frameborder="0"
+        >
+        </iframe>
+        <div class="contact-info">
+          <div class="contact-info-container">
+            <div class="col1">
+              <img src="img/logo-main.png" alt="" />
+              <p>
+                © 1998-2019 ООО «Аудиторская фирма «СОВА»<br /><br />
+                Все права защищены.
+              </p>
+            </div>
+            <div class="col2">
+              <h2>Карта сайта</h2>
+              <ul class="map">
+                <li>»  О нас</li>
+                <li>»  Услуги</li>
+                <li>»  Карьера</li>
+                <li>»  Аккредитации</li>
+              </ul>
+              <h2>Дополнительно</h2>
+              <a href="docs/raskrytie informacii.docx" download>
+                <svg
+                  width="12"
+                  height="16"
+                  viewBox="0 0 12 16"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M11.5594 3.05896L8.9375 0.437085C8.65625 0.155835 8.275 -0.00354004 7.87813 -0.00354004H1.5C0.671875 -0.000415039 0 0.67146 0 1.49958V14.4996C0 15.3277 0.671875 15.9996 1.5 15.9996H10.5C11.3281 15.9996 12 15.3277 12 14.4996V4.12146C12 3.72458 11.8406 3.34021 11.5594 3.05896ZM10.3781 3.99959H8V1.62146L10.3781 3.99959ZM1.5 14.4996V1.49958H6.5V4.74959C6.5 5.16521 6.83437 5.49959 7.25 5.49959H10.5V14.4996H1.5ZM9.31875 10.009C8.9375 9.63396 7.85 9.73708 7.30625 9.80583C6.76875 9.47771 6.40938 9.02459 6.15625 8.35896C6.27813 7.85584 6.47187 7.09021 6.325 6.60896C6.19375 5.79021 5.14375 5.87146 4.99375 6.42459C4.85625 6.92771 4.98125 7.62771 5.2125 8.52146C4.9 9.26834 4.43437 10.2715 4.10625 10.8465C3.48125 11.1683 2.6375 11.6652 2.5125 12.2902C2.40938 12.784 3.325 14.0152 4.89062 11.3152C5.59062 11.084 6.35312 10.7996 7.02812 10.6871C7.61875 11.0058 8.30938 11.2183 8.77188 11.2183C9.56875 11.2183 9.64688 10.3371 9.31875 10.009ZM3.12812 12.4402C3.2875 12.0121 3.89375 11.5183 4.07812 11.3465C3.48438 12.2933 3.12812 12.4621 3.12812 12.4402ZM5.67812 6.48396C5.90937 6.48396 5.8875 7.48709 5.73438 7.75896C5.59687 7.32459 5.6 6.48396 5.67812 6.48396V6.48396ZM4.91563 10.7527C5.21875 10.2246 5.47813 9.59646 5.6875 9.04333C5.94688 9.51521 6.27813 9.89333 6.62813 10.1527C5.97813 10.2871 5.4125 10.5621 4.91563 10.7527V10.7527ZM9.02812 10.5965C9.02812 10.5965 8.87188 10.784 7.8625 10.3527C8.95938 10.2715 9.14062 10.5215 9.02812 10.5965Z"
+                  />
+                  <defs>
+                    <clipPath id="clip0">
+                      <rect width="12" height="16" />
+                    </clipPath>
+                  </defs>
+                </svg>
+                Раскрытие информации
+              </a>
+            </div>
+            <div class="col3">
+              <h2>Связь</h2>
+              <p class="info-title">Адрес:</p>
+              <p>
+                460036, г. Оренбург, ул. Карагандинская, 58/1, вход 3, этаж 3
+              </p>
+              <p class="info-title">Телефон:</p>
+              <p>
+                +7 (3532) 507-123 (основной)<br />
+                +7 (3532) 508-225<br />
+                +7 (3532) 508-123>
+              </p>
+              <p class="info-title">E-mail:</p>
+                <a href="mailto:info@sova-orenburg.ru">info@sova-orenburg.ru</a>, <a href="mailto:af_sova@mail.ru">af_sova@mail.ru</a>
+            </div>
+          </div>
         </div>
-        <p class="text">
-          АФ «СОВА» нацелена на улучшение бизнеса, развитие бизнес-сообщества в
-          России. Мы помогаем повышать доверие к компаниям, искать направления
-          роста и развивать человеческий капитал.
-          <br />
-          <br />
-          Качество наших услуг основано на опыте, конфиденциальности и высоких
-          профессиональных стандартах.
-          <br />
-          <br />
-          Мы работаем с 1998 года и всегда открыты для нового.
-        </p>
       </section>
     </main>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="js/libs.min.js"></script>
+    <script src="js/script.js"></script>
     <script src="js/main.js"></script>
   </body>
 </html>

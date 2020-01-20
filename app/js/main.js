@@ -1,17 +1,46 @@
 $(function() {
 
-	$('.input-file').each(function() {
-    var $input = $(this),
-        $label = $input.next('.js-labelFile'),
-        labelVal = $label.html();
-     
-   $input.on('change', function(element) {
-      var fileName = '';
-      if (element.target.value) fileName = element.target.value.split('\\').pop();
-      fileName ? $label.addClass('has-file').find('.js-fileName').html(fileName) : $label.removeClass('has-file').html(labelVal);
-   });
-  });
+	document.getElementById('ajax-contact-form').addEventListener('submit', function(evt){
+    var http = new XMLHttpRequest(), f = this;
+    var th = $(this);
+    evt.preventDefault();
+    http.open("POST", "../contact.php", true);
+    http.onreadystatechange = function() {
+      if (http.readyState == 4 && http.status == 200) {
+        alert(http.responseText);
+        if (http.responseText.indexOf(f.nameFF.value) == 0) { // очистить поля формы, если в ответе первым словом будет имя отправителя (nameFF)
+          th.trigger("reset");
+        }
+      }
+    }
+    http.onerror = function() {
+      alert('Ошибка, попробуйте еще раз');
+    }
+    http.send(new FormData(f));
+  }, false);
 
+
+
+
+
+
+  $(".input-file").each(function() {
+    var $input = $(this),
+      $label = $input.next(".js-labelFile"),
+			labelVal = $label.html();
+			
+			$input.on("change", function(element) {
+				var fileName = "";
+				if (element.target.value)
+        fileName = element.target.value.split("\\").pop();
+				fileName
+        ? $label
+				.addClass("has-file")
+				.find(".js-fileName")
+				.html(fileName)
+        : $label.removeClass("has-file").html(labelVal);
+			});
+	});
 });
 
 let slides = document.querySelectorAll(".slide"),
