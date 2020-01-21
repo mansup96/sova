@@ -24,7 +24,9 @@ let slides = document.querySelectorAll(".slide"),
   menuItems = [],
   circles = document.querySelectorAll(".nav a path"),
   zIndex = 0,
-  activeSlide = 0;
+  activeSlide = 0,
+  navBar = document.querySelector(".nav.fixed"),
+  footerMapItems = document.querySelectorAll(".map li");
 
 navItems.forEach(item => {
   menuItems.push(item);
@@ -34,6 +36,24 @@ menuItems.unshift(logo);
 slides.forEach(element => {
   element.style.zIndex = zIndex;
   zIndex++;
+});
+
+footerMapItems.forEach(elem => {
+  elem.addEventListener("click", () => {
+    let attr = elem.getAttribute("link-to");
+    let curSlide = document.querySelector(`.slide[name='${attr}']`);
+    slides.forEach(slide => {
+      if (
+        slide.style.zIndex <= curSlide.style.zIndex &&
+        activeSlide <= curSlide.style.zIndex
+      )
+        slide.classList.add("to-top");
+    });
+    sortToBottom(curSlide);
+    activeSlide = parseInt(curSlide.style.zIndex);
+    navItemColorChange(curSlide);
+    changeNavPos();
+  });
 });
 
 menuItems.forEach(elem => {
@@ -48,8 +68,9 @@ menuItems.forEach(elem => {
         slide.classList.add("to-top");
     });
     sortToBottom(curSlide);
-    activeSlide = curSlide.style.zIndex;
+    activeSlide = parseInt(curSlide.style.zIndex);
     navItemColorChange(curSlide);
+    changeNavPos();
   });
 });
 
@@ -83,44 +104,47 @@ function wheel(event) {
     delta = -event.detail / 3;
   }
   // Запрещаем обработку события браузером по умолчанию
-  if (delta < 0 && activeSlide < slides.length - 1) {
+  if (delta < 0) {
     flipDown();
   }
   if (delta > 0 && activeSlide > 0) {
     flipUp();
   }
 }
+
 document.addEventListener("keydown", flipByButtons, false);
 
 function flipByButtons(event) {
   if (event.key === "ArrowDown" || event.key === "PageDown") {
-    if (activeSlide < slides.length - 1) {
-      flipDown();
-    }
+    flipDown();
   }
   if (event.key === "ArrowUp" || event.key === "PageUp") {
-    if (activeSlide > 0) {
-      flipUp();
-    }
+    flipUp();
   }
 }
 
 function flipDown() {
-  activeSlide++;
-  slides[activeSlide].classList.add("to-top");
-  blurNavItem();
-  focusNavItem();
-  stopItPlease();
+  if (activeSlide < slides.length - 1) {
+    activeSlide++;
+    slides[activeSlide].classList.add("to-top");
+    blurNavItem();
+    focusNavItem();
+    stopItPlease();
+    changeNavPos();
+  }
 }
 
 function flipUp() {
-  slides[activeSlide].classList.remove("to-top");
-  activeSlide--;
-  blurNavItem();
-  if (activeSlide !== 0) {
-    focusNavItem();
+  if (activeSlide > 0) {
+    slides[activeSlide].classList.remove("to-top");
+    activeSlide--;
+    blurNavItem();
+    if (activeSlide !== 0) {
+      focusNavItem();
+    }
+    stopItPlease();
+    changeNavPos();
   }
-  stopItPlease();
 }
 
 function stopItPlease() {
@@ -169,7 +193,9 @@ let fixedEls = document.querySelectorAll(".fixed");
 
 servBtn.forEach((item, pos) => {
   item.addEventListener("click", () => {
-    modalWindow[pos].classList.add("show-modal");
+    let link = item.getAttribute("link-to");
+    let modal = document.querySelector(`.modal-wrapper[name='${link}']`);
+    modal.classList.add("show-modal");
     fixedEls.forEach(elem => {
       elem.style.zIndex = -200;
     });
@@ -186,3 +212,19 @@ closers.forEach((item, ind) => {
     });
   });
 });
+
+//////// Change Nav position for Contacts slide ///////////
+
+function changeNavPos() {
+  if (activeSlide === slides.length - 1) {
+    navBar.classList.add("for-contact-slide");
+    logo.classList.add("dissappear");
+    setTimeout(() => {
+      logo.style.zIndex = -200;
+    }, 400);
+  } else {
+    navBar.classList.remove("for-contact-slide");
+    logo.style.zIndex = 1000;
+    logo.classList.remove("dissappear");
+  }
+}

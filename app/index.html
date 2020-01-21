@@ -140,7 +140,7 @@
           <h1>услуги</h1>
         </div>
         <div class="serv-list">
-          <div class="serv-item">
+          <div link-to="audit" class="serv-item">
             <svg
               width="156"
               height="156"
@@ -203,7 +203,7 @@
             </svg>
             <p class="serv-title">Аудит и МСФО</p>
           </div>
-          <div class="serv-item">
+          <div link-to="assessment" class="serv-item">
             <svg
               width="157"
               height="156"
@@ -251,7 +251,7 @@
             </svg>
             <p class="serv-title">Оценка и финансовое моделирование</p>
           </div>
-          <div class="serv-item">
+          <div link-to="outsource" class="serv-item">
             <svg
               width="157"
               height="156"
@@ -275,7 +275,7 @@
             </svg>
             <p class="serv-title">Аутсорсинг</p>
           </div>
-          <div class="serv-item">
+          <div link-to="learn" class="serv-item">
             <svg
               width="157"
               height="156"
@@ -290,7 +290,7 @@
             </svg>
             <p class="serv-title">Обучение</p>
           </div>
-          <div class="serv-item">
+          <div link-to="consult" class="serv-item">
             <svg
               width="157"
               height="156"
@@ -348,7 +348,7 @@
             <p class="serv-title">Консалтинг</p>
           </div>
         </div>
-        <div class="modal-wrapper audit">
+        <div name="audit" class="modal-wrapper audit">
           <div class="modal-container">
             <img class="modal-closer" src="./img/popup-closer.svg" alt="" />
             <h2 class="modal-title">
@@ -428,7 +428,7 @@
             </div>
           </div>
         </div>
-        <div class="modal-wrapper assessment">
+        <div name="assessment" class="modal-wrapper assessment">
           <div class="modal-container">
             <img class="modal-closer" src="./img/popup-closer.svg" alt="" />
             <h2 class="modal-title">
@@ -508,7 +508,7 @@
             </div>
           </div>
         </div>
-        <div class="modal-wrapper outsource">
+        <div name="outsource" class="modal-wrapper outsource">
           <div class="modal-container">
             <img class="modal-closer" src="./img/popup-closer.svg" alt="" />
             <h2 class="modal-title">
@@ -579,7 +579,7 @@
             </div>
           </div>
         </div>
-        <div class="modal-wrapper learn">
+        <div name="learn" class="modal-wrapper learn">
           <div class="modal-container">
             <img class="modal-closer" src="./img/popup-closer.svg" alt="" />
             <h2 class="modal-title">
@@ -673,7 +673,7 @@
             </div>
           </div>
         </div>
-        <div class="modal-wrapper consult">
+        <div name="consult" class="modal-wrapper consult">
           <div class="modal-container">
             <img class="modal-closer" src="./img/popup-closer.svg" alt="" />
             <h2 class="modal-title">
@@ -969,10 +969,10 @@
             <div class="col2">
               <h2>Карта сайта</h2>
               <ul class="map">
-                <li>»  О нас</li>
-                <li>»  Услуги</li>
-                <li>»  Карьера</li>
-                <li>»  Аккредитации</li>
+                <li link-to="about-us">»  О нас</li>
+                <li link-to="services">»  Услуги</li>
+                <li link-to="career">»  Карьера</li>
+                <li link-to="accredit">»  Аккредитации</li>
               </ul>
               <h2>Дополнительно</h2>
               <a href="docs/raskrytie informacii.docx" download>
@@ -991,8 +991,7 @@
                       <rect width="12" height="16" />
                     </clipPath>
                   </defs>
-                </svg>
-                Раскрытие информации
+                </svg>Раскрытие информации
               </a>
             </div>
             <div class="col3">
