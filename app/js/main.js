@@ -84,31 +84,53 @@ function wheel(event) {
   }
   // Запрещаем обработку события браузером по умолчанию
   if (delta < 0 && activeSlide < slides.length - 1) {
-    activeSlide++;
-    slides[activeSlide].classList.add("to-top");
-    blurNavItem();
-    focusNavItem();
-		stopItPlease()
+    flipDown();
   }
   if (delta > 0 && activeSlide > 0) {
-    slides[activeSlide].classList.remove("to-top");
-    activeSlide--;
-    blurNavItem();
-    if (activeSlide !== 0) {
-      focusNavItem();
-		}
-		stopItPlease()
+    flipUp();
   }
 }
-function stopItPlease() {
-	removeHandler(window, "DOMMouseScroll", wheel);
-	removeHandler(document, "mousewheel", wheel);
-	setTimeout(() => {
-		addHandler(window, "DOMMouseScroll", wheel);
-		addHandler(document, "mousewheel", wheel);
-	}, 400);
+document.addEventListener("keydown", flipByButtons, false);
+
+function flipByButtons(event) {
+  if (event.key === "ArrowDown" || event.key === "PageDown") {
+    if (activeSlide < slides.length - 1) {
+      flipDown();
+    }
+  }
+  if (event.key === "ArrowUp" || event.key === "PageUp") {
+    if (activeSlide > 0) {
+      flipUp();
+    }
+  }
 }
 
+function flipDown() {
+  activeSlide++;
+  slides[activeSlide].classList.add("to-top");
+  blurNavItem();
+  focusNavItem();
+  stopItPlease();
+}
+
+function flipUp() {
+  slides[activeSlide].classList.remove("to-top");
+  activeSlide--;
+  blurNavItem();
+  if (activeSlide !== 0) {
+    focusNavItem();
+  }
+  stopItPlease();
+}
+
+function stopItPlease() {
+  removeHandler(window, "DOMMouseScroll", wheel);
+  removeHandler(document, "mousewheel", wheel);
+  setTimeout(() => {
+    addHandler(window, "DOMMouseScroll", wheel);
+    addHandler(document, "mousewheel", wheel);
+  }, 400);
+}
 
 function navItemColorChange(curSlide) {
   blurNavItem();
