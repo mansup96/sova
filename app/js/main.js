@@ -1,4 +1,48 @@
 $(function() {
+  $("#form-commerc").on("submit", function(e) {
+    e.preventDefault();
+    $.ajax({
+      url: "send-form.php",
+      type: "POST",
+      contentType: false,
+      processData: false,
+      data: new FormData(this),
+      success: function(msg) {
+        console.log(msg);
+        if (msg == "ok") {
+          alert("Сообщение отправлено");
+          $("#form").trigger("reset"); // очистка формы
+        } else {
+          alert("Ошибка");
+        }
+      }
+    });
+  });
+
+  $("#form-commerc").trigger("reset");
+
+  $("#form-career").on("submit", function(e) {
+    e.preventDefault();
+    $.ajax({
+      url: "send-file.php",
+      type: "POST",
+      contentType: false,
+      processData: false,
+      data: new FormData(this),
+      success: function(msg) {
+        console.log(msg);
+        if (msg == "ok") {
+          alert("Сообщение отправлено");
+          $("#form").trigger("reset"); // очистка формы
+        } else {
+          alert("Ошибка");
+        }
+      }
+    });
+  });
+
+  $("#form-career").trigger("reset");
+
   $(".input-file").each(function() {
     var $input = $(this),
       $label = $input.next(".js-labelFile"),
@@ -193,12 +237,12 @@ let fixedEls = document.querySelectorAll(".fixed");
 
 servBtn.forEach((item, pos) => {
   item.addEventListener("click", () => {
-    let link = item.getAttribute("link-to");
-    let modal = document.querySelector(`.modal-wrapper[name='${link}']`);
-    modal.classList.add("show-modal");
     fixedEls.forEach(elem => {
       elem.style.zIndex = -200;
     });
+    let link = item.getAttribute("link-to");
+    let modal = document.querySelector(`.modal-wrapper[name='${link}']`);
+    modal.classList.add("show-modal");
   });
 });
 

@@ -1,0 +1,48 @@
+@media (max-width: 1800px) {
+	html {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 1700px) {
+	html {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 1376px) {
+  html {
+    font-size: 12px;
+	}
+	.nav {
+		top: 40%
+	}
+  .services {
+    .serv-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      width: 42%;
+      min-width: 900px;
+      margin-top: 4rem;
+      .serv-item {
+        width: 20%;
+        svg {
+          width: 50%;
+          height: 38%;
+        }
+        .serv-title {
+          margin-top: 1.5rem;
+        }
+      }
+    }
+  }
+  .accredit .org-list {
+    width: 64%;
+	}
+	.accredit .membership .memb-list {
+		width: 64%;
+	}
+}
+
+

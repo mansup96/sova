@@ -2,6 +2,7 @@
 @import "libs";
 @import "fonts";
 @import "global";
+@import "media";
 
 .fixed {
   z-index: 1000;
@@ -34,18 +35,18 @@
     list-style-type: none;
     display: flex;
     justify-content: flex-end;
-    margin-bottom: 30px;
+    margin-bottom: 1.875rem;
     a {
       color: $white;
       transition: 0.2s;
-      font-size: 24px;
+      font-size: 1.33rem;
       font-weight: 900;
       display: flex;
       align-items: center;
       text-transform: uppercase;
       cursor: pointer;
       .circle {
-        margin-left: 22px;
+        margin-left: 1.25rem;
         path {
           fill: $white;
           transition: 0.2s;
@@ -75,20 +76,20 @@
   .title {
     margin-left: 22%;
     .row1 {
-      font-size: 57px;
+      font-size: 3.167rem;
       line-height: 100%;
       text-transform: uppercase;
     }
     .row2 {
-      font-size: 124px;
+      font-size: 6.9rem;
       font-weight: 900;
       line-height: 100%;
       text-transform: uppercase;
     }
     .sub-title {
-      font-size: 32px;
+      font-size: 1.778rem;
       line-height: 140%;
-      margin-top: 40px;
+      margin-top: 2.222rem;
       font-weight: 300;
     }
   }
@@ -102,9 +103,9 @@
     text-align: center;
     width: 56%;
     font-weight: 300;
-    font-size: 32px;
-    line-height: 45px;
-    margin-top: 45px;
+    font-size: 1.778rem;
+    line-height: 2.5rem;
+    margin-top: 2.5rem;
   }
 }
 .services {
@@ -117,13 +118,14 @@
     flex-wrap: wrap;
     justify-content: center;
     width: 42%;
-    margin-top: 80px;
+    min-width: 900px;
+    margin-top: 4.444rem;
     .serv-item {
       width: 25%;
       display: flex;
       flex-direction: column;
       align-items: center;
-      margin: 0 30px 60px;
+      margin: 0 1.667rem 3.333rem;
       outline: none;
       cursor: pointer;
       &:hover circle {
@@ -133,6 +135,7 @@
         fill: $accent;
       }
       svg {
+        width: 100%;
         circle {
           fill: $accent;
           transition: 0.2s;
@@ -144,9 +147,9 @@
       }
       .serv-title {
         text-align: center;
-        margin-top: 40px;
+        margin-top: 2.222rem;
         font-weight: 900;
-        font-size: 20px;
+        font-size: 1.111rem;
         line-height: 140%;
         text-transform: uppercase;
       }
@@ -175,8 +178,8 @@
         border: 2px solid $yellow;
         border-radius: 3px;
         font-weight: 600;
-        font-size: 18px;
-        line-height: 160%;
+        font-size: 1rem;
+        line-height: 1.611rem;
         text-transform: uppercase;
         transition: 0.2s;
       }
@@ -197,38 +200,20 @@
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
-        padding: 15px 0;
+        padding: 0.833rem 0;
         cursor: pointer;
         text-align: center;
-      }
-      .button {
-        width: 37%;
-        border-radius: 3px;
-        border: 0;
-        outline: none;
-        background-color: $yellow;
-        color: $main;
-        transition: 0.2s;
-        cursor: pointer;
-        font-weight: 600;
-        font-size: 18px;
-        line-height: 160%;
-        text-transform: uppercase;
-      }
-      .button:hover,
-      .button:focus {
-        background-color: $white;
       }
     }
   }
   .career-content {
     width: 38%;
     font-weight: 300;
-    font-size: 24px;
-    line-height: 120%;
+    font-size: 1.333rem;
+    line-height: 1.611rem;
     .slide-title {
       align-items: flex-start;
-      margin-bottom: 40px;
+      margin-bottom: 2.222rem;
     }
     .fw-500 {
       font-weight: 500;
@@ -249,13 +234,13 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 40px 0 0 0;
+  padding: 2.222rem 0 0 0;
   .org-list {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
-    margin-top: 40px;
+    margin-top: 2.222rem;
     width: 68%;
     max-width: 1300px;
     .org-list-item {
@@ -263,7 +248,7 @@
       flex-direction: column;
       align-items: center;
       width: 17%;
-      margin-bottom: 40px;
+      margin-bottom: 2.222rem;
       img {
         margin-bottom: 20px;
         width: 41%;
@@ -271,8 +256,9 @@
       p {
         text-align: center;
         font-weight: 300;
-        font-size: 18px;
-        line-height: 140%;
+        font-size: 1rem;
+        line-height: 1.389rem;
+        white-space: nowrap;
       }
     }
   }
@@ -284,18 +270,18 @@
     align-items: center;
     background-color: #303136cf;
     .memb-title {
-      margin-top: 60px;
+      margin-top: 3.333rem;
       h2 {
         font-weight: 300;
-        font-size: 24px;
-        line-height: 29px;
+        font-size: 1.333rem;
+        line-height: 1.611rem;
       }
     }
     .memb-list {
       display: flex;
       justify-content: space-between;
       width: 68%;
-      margin-top: 40px;
+      margin-top: 2.222rem;
       max-width: 1300px;
       .memb-list-item {
         width: 19%;
@@ -304,13 +290,13 @@
         align-items: center;
         img {
           width: 40%;
-          margin-bottom: 20px;
+          margin-bottom: 1.111rem;
         }
         p {
           text-align: center;
           font-style: normal;
           font-weight: 100;
-          font-size: 18px;
+          font-size: 1rem;
           line-height: 140%;
         }
       }
@@ -319,10 +305,122 @@
 }
 .commerc {
   background: url(../img/kp-bcgr.jpg) no-repeat;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  .contact-form {
+    margin-top: 2.5rem;
+    width: 56%;
+    max-width: 1080px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .input-container {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      .contact-form__input-wrapper {
+        width: 48%;
+        .contact-form__input {
+          height: 3.75rem;
+          width: 100%;
+        }
+      }
+    }
+    .contact-form__input-wrapper {
+      margin: 0 0 2.222rem 0;
+      width: 100%;
+      .contact-form__input {
+        border-radius: 3px;
+        padding-left: 1.111rem;
+        border: 0;
+        width: 100%;
+        outline: none;
+      }
+      .contact-form__input:focus {
+        box-shadow: 0 0 0 3px $yellow;
+      }
+      .contact-form__input.checkbox {
+        width: auto;
+      }
+      .contact-form__input::placeholder {
+        color: $gray;
+        font-style: italic;
+        font-weight: 300;
+        font-size: 1rem;
+        line-height: 1.6rem;
+      }
+      .contact-form__text {
+        height: 6.667rem;
+        resize: none;
+        padding-top: 10px;
+      }
+    }
+    .contact-form__checbox_description {
+      font-size: 1.333rem;
+      line-height: 1.944rem;
+      font-weight: 500;
+      margin-bottom: 1.944rem;
+    }
+    .chechbox-container {
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    .checkbox {
+      position: absolute;
+      z-index: -1;
+      opacity: 0;
+      margin: 0.5556rem 0 0 1.111rem;
+    }
+    .checkbox + label {
+      position: relative;
+      padding: 0 0 0 3.111rem;
+      cursor: pointer;
+    }
+    .checkbox + label:before {
+      content: "";
+      position: absolute;
+      top: -40%;
+      left: 0;
+      width: 2rem;
+      height: 2rem;
+      border-radius: 3px;
+      border: 2px solid $white;
+      box-sizing: border-box;
+      font-weight: 300;
+      font-size: 1rem;
+      line-height: 1.222rem;
+    }
+    .checkbox:checked + label:before {
+			background: url(../img/check.svg) center no-repeat;
+			background-size: 2rem 2rem;
+      content: '';
+			border: 0;
+			width: 2rem;
+			height: 2rem;
+    }
+    .checkbox:focus + label:before {
+      box-shadow: 0 0 0 3px $yellow;
+    }
+    [for="agreement"] {
+      a {
+        color: $accent;
+        text-decoration: underline;
+      }
+    }
+    .button {
+      width: 11.11rem;
+      height: 3.333rem;
+    }
+  }
 }
 .contacts {
   color: $white;
-  font-size: 18px;
+  font-size: 1rem;
   .contact-info {
     position: absolute;
     top: 50%;
@@ -338,23 +436,23 @@
       max-width: 1300px;
       display: flex;
       justify-content: space-between;
-      margin-top: 60px;
+      margin-top: 3.333rem;
       h2 {
         font-weight: bold;
-        font-size: 20px;
-        line-height: 160%;
+        font-size: 1.111rem;
+        line-height: 1.778rem;
         text-transform: uppercase;
-        margin-bottom: 30px;
+        margin-bottom: 1.4rem;
       }
       p {
         font-weight: 100;
-        line-height: 140%;
-        margin-bottom: 30px;
+        line-height: 1.389rem;
+        margin-bottom: 1.667rem;
       }
       a {
         font-weight: 100;
-        font-size: 16px;
-        line-height: 120%;
+        font-size: 1rem;
+        line-height: 1.222rem;
         color: $white;
         text-decoration: underline;
         transition: 0.2s;
@@ -369,7 +467,7 @@
         width: 24%;
         img {
           width: 41%;
-          margin-bottom: 25px;
+          margin-bottom: 1.389rem;
         }
       }
       .col2 {
@@ -379,17 +477,18 @@
           fill: $white;
         }
         svg {
-          margin-right: 5px;
+          margin-right: 0.4rem;
         }
       }
       ul {
         list-style-type: none;
-        margin-bottom: 30px;
+        margin-bottom: 1.667rem;
         li {
           font-weight: 100;
-          line-height: 160%;
+          line-height: 1.611rem;
           transition: 0.2s;
-          cursor: pointer;
+					cursor: pointer;
+					width: 50%;
           &:hover {
             color: $accent;
           }
@@ -400,7 +499,7 @@
         .info-title {
           margin: 0;
           font-weight: 500;
-          line-height: 120%;
+          line-height: 1.222rem;
         }
       }
     }
@@ -414,6 +513,24 @@
     }
   }
 }
+.button {
+  width: 37%;
+  border-radius: 3px;
+  border: 0;
+  outline: none;
+  background-color: $yellow;
+  color: $main;
+  transition: 0.2s;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 1.611rem;
+  text-transform: uppercase;
+}
+.button:hover,
+.button:focus {
+  background-color: $white;
+}
 .slide-title {
   position: relative;
   display: flex;
@@ -426,13 +543,13 @@
     width: 60px;
     height: 2px;
     background-color: #cfcfcf;
-    margin: 20px 0 0 0;
+    margin: 1.111rem 0 0 0;
     border-radius: 3px;
   }
   h1 {
     font-weight: 900;
-    font-size: 38px;
-    line-height: 38px;
+    font-size: 2.111rem;
+    line-height: 2.111rem;
   }
 }
 .slide-wrapper {
@@ -479,5 +596,4 @@
   }
 }
 
-@import "media";
 @import "modal";

@@ -16,8 +16,8 @@
 .modal-container {
   width: 100%;
   height: 100%;
-  padding: 3% 6% 0;
-  border-radius: 20px;
+  padding: 3.333rem 6.222rem;
+  border-radius: 1.111rem;
   background: url(../img/popup-bcgr.jpg) center no-repeat;
   background-size: cover;
   position: relative;
@@ -25,15 +25,15 @@
 .modal-closer {
   position: absolute;
   cursor: pointer;
-  left: 97%;
-  top: 3%;
+  right: 1rem;
+  top: 1rem;
 }
 .modal-title {
   font-weight: 900;
-  font-size: 43px;
-  line-height: 140%;
+  font-size: 2.389rem;
+  line-height: 3rem;
   color: $accent;
-  margin-bottom: 60px;
+  margin-bottom: 3rem;
 }
 .content-wrapper {
   display: flex;
@@ -45,8 +45,8 @@
 }
 .modal-description {
   font-weight: 300;
-  font-size: 22px;
-  margin-bottom: 50px;
+  font-size: 1.222rem;
+  margin-bottom: 2.778rem;
   width: 100%;
 }
 .service-list {
@@ -57,34 +57,38 @@
   width: 48%;
 }
 .service-title {
-	display: flex;
-	justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
   h3 {
     font-weight: 700;
-    font-size: 18px;
-    line-height: 180%;
-		margin-bottom: 20px;
-		width: 48%;
+    font-size: 1rem;
+    line-height: 1.778rem;
+    margin-bottom: 1.111rem;
+    width: 48%;
   }
 }
 .service-item {
-  font-size: 18px;
-  line-height: 180%;
+  font-size: 1rem;
+  line-height: 1.778rem;
   position: relative;
-	padding-left: 25px;
+  padding-left: 25px;
   &::before {
-    content: url("../img/check.svg");
-    margin-right: 10px;
+    content: "";
+    background-image: url("../img/solid_check_string.svg");
+    background-size: 0.8889rem 0.6667rem;
     height: 100%;
     position: absolute;
     left: 0;
+    top: 0.5rem;
+    width: 0.8889rem;
+    height: 0.6667rem;
   }
 }
 .learn .service-col:nth-child(2) {
-	margin-top: -40px;
-	h3 {
-		margin: 20px 0;
-	}
+  margin-top: -40px;
+  h3 {
+    margin: 20px 0;
+  }
 }
 .modal-member {
   display: flex;
@@ -94,23 +98,24 @@
   width: 43%;
   height: 100%;
   img {
-    margin-bottom: 40px;
+		margin-bottom: 2.222rem;
+		width: 20%;
   }
   .member-name {
     font-weight: 900;
-    font-size: 22px;
-    line-height: 140%;
+    font-size: 1.222rem;
+    line-height: 1.7rem;
   }
   .member-position {
     font-style: italic;
     font-weight: normal;
-    font-size: 18px;
-    line-height: 180%;
+    font-size: 1rem;
+    line-height: 1.778rem;
   }
   .member-email {
     font-weight: 300;
-    font-size: 22px;
-    line-height: 140%;
+    font-size: 1.222rem;
+    line-height: 1.7rem;
     a {
       font-weight: 900;
     }
