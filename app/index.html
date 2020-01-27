@@ -9,6 +9,52 @@
   </head>
   <body>
     <img link-to="main" class="logo fixed" src="./img/logo-main.png" alt="" />
+    <div class="mobile-menu">
+      <div class="menu-wrapper">
+        <a href='#main' class="mobile-logo">
+          <img src="./img/logo-main.png" alt="" />
+        </a>
+        <div class="menu-toggle"></div>
+			</div>
+			<div class="mobile-nav">
+				<ul>
+					<li>
+						<a href="#about-us">
+							О нас
+						</a>
+					</li>
+					<li>
+						<a href="#services"
+							>Услуги
+						</a>
+					</li>
+					<li>
+						<a href="#career"
+							>Карьера
+						</a>
+					</li>
+					<li>
+						<a href="#accredit"
+							>Аккредитации
+						</a>
+					</li>
+					<li>
+						<a href="#commerc"
+							>Запрос КП
+						</a>
+					</li>
+					<li>
+						<a href="#contacts"
+							>Связь
+						</a>
+					</li>
+				</ul>
+				<span>460036, г. Оренбург, ул. Карагандинская, 58/1, вход 3, этаж 3</span>
+				<a href="tel:+73532507123">+7 (3532) 507-123</a>
+				<a href="tel:+73532508225">+7 (3532) 508-225</a>
+				<a href="tel:+73532508123">+7 (3532) 508-123</a>
+			</div>
+    </div>
     <div class="nav fixed">
       <ul>
         <li>
@@ -116,14 +162,14 @@
       </ul>
     </div>
     <main class="slide-wrapper">
-      <section name="main" class="main slide to-top">
+      <section name="main" id="main" class="main slide to-top">
         <div class="title">
           <h1 class="row1">Аудиторская фирма</h1>
           <h1 class="row2">«Сова»</h1>
           <p class="sub-title">Более 20 лет помогаем российскому бизнесу!</p>
         </div>
       </section>
-      <section name="about-us" class="about-us slide">
+      <section name="about-us" id="about-us" class="about-us slide">
         <div class="slide-title">
           <h1>О нас</h1>
         </div>
@@ -140,7 +186,7 @@
           Мы работаем с 1998 года и всегда открыты для нового.
         </p>
       </section>
-      <section name="services" class="services slide">
+      <section name="services" id="services" class="services slide">
         <div class="slide-title">
           <h1>услуги</h1>
         </div>
@@ -374,12 +420,11 @@
                   Наша ответственность по аудиту застрахована в АО
                   «АльфаСтрахование».
                 </p>
-                <div class="service-title">
-                  <h3>Аудиторские услуги:</h3>
-                  <h3>Услуги, связанные с аудитом:</h3>
-                </div>
                 <div class="service-list">
                   <div class="service-col">
+                    <div class="service-title">
+                      <h3>Аудиторские услуги:</h3>
+                    </div>
                     <p class="service-item">
                       обязательный аудит бухгалтерской (финансовой) отчетности,
                       подготовленной по РСБУ
@@ -399,6 +444,9 @@
                     </p>
                   </div>
                   <div class="service-col">
+                    <div class="service-title">
+                      <h3>Услуги, связанные с аудитом:</h3>
+                    </div>
                     <p class="service-item">
                       трансформация и подготовка финансовой отчетности в
                       соответствии с МСФО
@@ -453,12 +501,11 @@
                   Наша деятельность по оценке застрахована на сумму 130 млн.
                   руб.
                 </p>
-                <div class="service-title">
-                  <h3>Оценка:</h3>
-                  <h3>Финансовое моделирование:</h3>
-                </div>
                 <div class="service-list">
                   <div class="service-col">
+                    <div class="service-title">
+                      <h3>Оценка:</h3>
+                    </div>
                     <p class="service-item">
                       недвижимость
                     </p>
@@ -482,6 +529,9 @@
                     </p>
                   </div>
                   <div class="service-col">
+                    <div class="service-title">
+                      <h3>Финансовое моделирование:</h3>
+                    </div>
                     <p class="service-item">
                       подготовка бизнес и инвестиционных проектов
                     </p>
@@ -530,11 +580,11 @@
                   законодательстве, владеем полным пакетом правовых и
                   бухгалтерских программ.
                 </p>
-                <div class="service-title">
-                  <h3>Услуги по аутсорсингу:</h3>
-                </div>
                 <div class="service-list">
                   <div class="service-col">
+                    <div class="service-title">
+                      <h3>Услуги по аутсорсингу:</h3>
+                    </div>
                     <p class="service-item">
                       ведение бухгалтерского и налогового учётов
                     </p>
@@ -600,15 +650,14 @@
                   АФ Сова является региональным отделением Института Развития
                   Современных Образовательных Технологий (ИРСОТ).
                 </p>
-                <div class="service-title">
-                  <h3>
-                    Повышение квалификации с выдачей удостоверения
-                    установленного образца:
-                  </h3>
-                  <h3>Образовательные семинары</h3>
-                </div>
                 <div class="service-list">
                   <div class="service-col">
+                    <div class="service-title">
+                      <h3>
+                        Повышение квалификации с выдачей удостоверения
+                        установленного образца:
+                      </h3>
+                    </div>
                     <p class="service-item">
                       бухгалтерский и налоговый учет в коммерческих организациях
                     </p>
@@ -637,6 +686,9 @@
                     </p>
                   </div>
                   <div class="service-col">
+                    <div class="service-title">
+                      <h3>Образовательные семинары</h3>
+                    </div>
                     <p class="service-item">
                       неделя бухгалтерского учета
                     </p>
@@ -649,7 +701,9 @@
                     <p class="service-item">
                       семинары по актуальным тематикам
                     </p>
-                    <h3>Форма обучения:</h3>
+                    <div class="service-title spec">
+                      <h3>Форма обучения:</h3>
+                    </div>
                     <p class="service-item">
                       очно
                     </p>
@@ -697,12 +751,11 @@
                   это улучшение организации и эффективности бизнеса для
                   достижения намеченных целей компании.
                 </p>
-                <div class="service-title">
-                  <h3>Налоги и бухучёт:</h3>
-                  <h3>Корпоративное управление:</h3>
-                </div>
                 <div class="service-list">
                   <div class="service-col">
+                    <div class="service-title">
+                      <h3>Налоги и бухучёт:</h3>
+                    </div>
                     <p class="service-item">
                       учёт налогов
                     </p>
@@ -723,6 +776,9 @@
                     </p>
                   </div>
                   <div class="service-col">
+                    <div class="service-title">
+                      <h3>Корпоративное управление:</h3>
+                    </div>
                     <p class="service-item">
                       бюджетирование
                     </p>
@@ -758,22 +814,25 @@
           </div>
         </div>
       </section>
-      <section name="career" class="career slide">
+      <section name="career" id="career" class="career slide">
         <div class="career-img">
           <img src="./img/career-img.jpg" alt="" />
           <div class="form-group">
-            <form
-              id="form-career"
-              enctype="multipart/form-data"
-              method="POST"
-            >
-              <input type="file" name="myfile[]" id="myfile" multiple class="input-file" required/>
+            <form id="form-career" enctype="multipart/form-data" method="POST">
+              <input
+                type="file"
+                name="myfile[]"
+                id="myfile"
+                multiple
+                class="input-file"
+                required
+              />
               <label for="myfile" class="btn btn-tertiary js-labelFile">
                 <span class="js-fileName">Загрузить резюме</span>
               </label>
               <input type="submit" value="Отправить" class="button" />
             </form>
-					</div>
+          </div>
         </div>
         <div class="career-content">
           <div class="slide-title">
@@ -803,7 +862,7 @@
           <div class="serv-list"></div>
         </div>
       </section>
-      <section name="accredit" class="accredit slide">
+      <section name="accredit" id="accredit" class="accredit slide">
         <div class="slide-title">
           <h1>Аккредитации</h1>
         </div>
@@ -880,7 +939,7 @@
           </div>
         </div>
       </section>
-      <section name="commerc" class="commerc slide">
+      <section name="commerc" id="commerc" class="commerc slide">
         <div class="slide-title">
           <h1>запрос коммерческого предложения</h1>
         </div>
@@ -898,8 +957,8 @@
                 name="name"
                 type="text"
                 class="contact-form__input contact-form__input_name"
-								placeholder="Фамилия, имя, отчество"
-								required
+                placeholder="Фамилия, имя, отчество"
+                required
               />
               <div class="contact-form__error contact-form__error_name"></div>
             </div>
@@ -908,18 +967,18 @@
                 name="tel"
                 type="tel"
                 class="contact-form__input contact-form__input_tel"
-								placeholder="Номер телефона"
-								required
+                placeholder="Номер телефона"
+                required
               />
               <div class="contact-form__error contact-form__error_tel"></div>
             </div>
             <div class="contact-form__input-wrapper">
               <input
-								type="text"
-								name='organization'
+                type="text"
+                name="organization"
                 class="contact-form__input contact-form__input_org"
-								placeholder="Название организации"
-								required
+                placeholder="Название организации"
+                required
               />
               <div class="contact-form__error contact-form__error_email"></div>
             </div>
@@ -941,8 +1000,8 @@
               <input
                 type="checkbox"
                 name="audit"
-								class="contact-form__input contact-form__checkbox checkbox"
-								id="audit"
+                class="contact-form__input contact-form__checkbox checkbox"
+                id="audit"
               />
               <label for="audit" class="contact-form__checkbox-label">
                 Аудит
@@ -952,8 +1011,8 @@
               <input
                 type="checkbox"
                 name="assessment"
-								class="contact-form__input contact-form__checkbox checkbox"
-								id="assessment"
+                class="contact-form__input contact-form__checkbox checkbox"
+                id="assessment"
               />
               <label for="assessment" class="contact-form__checkbox-label">
                 Оценка
@@ -963,8 +1022,8 @@
               <input
                 type="checkbox"
                 name="outsource"
-								class="contact-form__input contact-form__checkbox checkbox"
-								id="outsource"
+                class="contact-form__input contact-form__checkbox checkbox"
+                id="outsource"
               />
               <label for="outsource" class="contact-form__checkbox-label">
                 Аутсорсинг
@@ -974,8 +1033,8 @@
               <input
                 type="checkbox"
                 name="learn"
-								class="contact-form__input contact-form__checkbox checkbox"
-								id="learn"
+                class="contact-form__input contact-form__checkbox checkbox"
+                id="learn"
               />
               <label for="learn" class="contact-form__checkbox-label">
                 Обучение
@@ -985,8 +1044,8 @@
               <input
                 type="checkbox"
                 name="consult"
-								class="contact-form__input contact-form__checkbox checkbox"
-								id="consult"
+                class="contact-form__input contact-form__checkbox checkbox"
+                id="consult"
               />
               <label for="consult" class="contact-form__checkbox-label">
                 Консалтинг
@@ -996,8 +1055,8 @@
               <input
                 type="checkbox"
                 name="other"
-								class="contact-form__input contact-form__checkbox checkbox"
-								id="other"
+                class="contact-form__input contact-form__checkbox checkbox"
+                id="other"
               />
               <label for="other" class="contact-form__checkbox-label">
                 Прочее
@@ -1018,8 +1077,8 @@
               type="checkbox"
               name="agreement"
               class="contact-form__input contact-form__checkbox checkbox"
-							id="agreement"
-							required
+              id="agreement"
+              required
             />
             <label for="agreement" class="contact-form__checkbox-label"
               >Я <a href="#">согласен</a> на обработку персональных
@@ -1028,17 +1087,16 @@
             <div
               class="contact-form__error contact-form__error_agreement"
             ></div>
-					</div>
-					<!-- <input type="file" name="myfile[]" id="myfile" multiple class="input-file" />
+          </div>
+          <!-- <input type="file" name="myfile[]" id="myfile" multiple class="input-file" />
 					<label for="myfile" class="btn btn-tertiary js-labelFile"> -->
           <input class="button" type="submit" value="отправить" />
         </form>
       </section>
-      <section name="contacts" class="contacts slide">
+      <section name="contacts" id="contacts" class="contacts slide">
         <iframe
           src="https://yandex.ru/map-widget/v1/?um=constructor%3A968b2eaccf4874d7f3d91d60d54ad750b664f289bb2f0c93dbbc025e99db1b37&amp;source=constructor"
           width="100%"
-          height="100%"
           frameborder="0"
         >
         </iframe>
@@ -1047,17 +1105,17 @@
             <div class="col1">
               <img src="img/logo-main.png" alt="" />
               <p>
-                © 1998-2019 ООО «Аудиторская фирма «СОВА»<br /><br />
+                © 1998-2020 ООО «Аудиторская фирма «СОВА»<br /><br />
                 Все права защищены.
               </p>
             </div>
             <div class="col2">
               <h2>Карта сайта</h2>
               <ul class="map">
-                <li link-to="about-us">»  О нас</li>
-                <li link-to="services">»  Услуги</li>
-                <li link-to="career">»  Карьера</li>
-                <li link-to="accredit">»  Аккредитации</li>
+                <li link-to="about-us"><a href="#about-us">»  О нас</a></li>
+                <li link-to="services"><a href="#services">»  Услуги</a></li>
+                <li link-to="career"><a href="#career">»  Карьера</a></li>
+                <li link-to="accredit"><a href="#accredit">»  Аккредитации</a></li>
               </ul>
               <h2>Дополнительно</h2>
               <a href="docs/raskrytie informacii.docx" download>
@@ -1076,8 +1134,7 @@
                       <rect width="12" height="16" />
                     </clipPath>
                   </defs>
-                </svg>
-                Раскрытие информации
+                </svg>Раскрытие информации
               </a>
             </div>
             <div class="col3">
@@ -1109,5 +1166,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="js/libs.min.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/mobile-navbar.js"></script>
   </body>
 </html>

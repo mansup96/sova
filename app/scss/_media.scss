@@ -1,11 +1,11 @@
 @media (max-width: 1800px) {
-	html {
+  html {
     font-size: 16px;
   }
 }
 
 @media (max-width: 1700px) {
-	html {
+  html {
     font-size: 14px;
   }
 }
@@ -13,36 +13,356 @@
 @media (max-width: 1376px) {
   html {
     font-size: 12px;
-	}
-	.nav {
-		top: 40%
-	}
-  .services {
-    .serv-list {
+  }
+  .nav {
+    top: 40%;
+  }
+  .accredit .org-list {
+    width: 64%;
+  }
+  .accredit .membership .memb-list {
+    width: 64%;
+  }
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: 12px;
+  }
+  .mobile-menu {
+    position: fixed;
+    top: 0;
+    // height: 70px;
+    width: 100%;
+    z-index: 2500;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    // border-bottom: 1px solid $white;
+    .menu-wrapper {
+      // border-bottom: 1px solid $white;
+      padding: 10px 20px;
       display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      width: 42%;
-      min-width: 900px;
-      margin-top: 4rem;
-      .serv-item {
-        width: 20%;
-        svg {
-          width: 50%;
-          height: 38%;
+      justify-content: space-between;
+      width: 100%;
+      align-items: center;
+      height: 100%;
+      .mobile-logo {
+        width: 30%;
+        img {
+          width: 100%;
+          max-width: 100px;
         }
-        .serv-title {
-          margin-top: 1.5rem;
+      }
+      .menu-toggle {
+        background: url("../img/bars-solid.svg");
+        background-position: center;
+        background-repeat: no-repeat;
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+      }
+    }
+    .mobile-nav {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      transform-origin: top;
+      transform: scaleY(0);
+      transition: 0.4s;
+      height: 0;
+      background-color: #000000e0;
+      ul {
+        width: 100%;
+        li {
+          list-style-type: none;
+          cursor: pointer;
+          // margin-top: 1rem;
+          border-bottom: 1px solid #ffffff40;
+          text-align: right;
+          padding: 3% 0;
+          padding-right: 5%;
+          a {
+            font-size: 18px;
+            color: white;
+            text-transform: uppercase;
+            margin: 0;
+          }
+        }
+      }
+      span {
+        font-size: 18px;
+        text-align: right;
+        color: white;
+        width: 70%;
+        padding: 3% 5%;
+      }
+      a {
+        font-size: 18px;
+        text-align: right;
+        color: white;
+        width: 70%;
+        margin: 0 5% 3% 0;
+      }
+    }
+    .menu-wrapper-open {
+      background-color: #000000e0;
+    }
+    .mobile-nav-open {
+      transform: scaleY(1);
+      height: 100vh;
+    }
+  }
+  .menu-open {
+    // background-color: #000000e0;
+  }
+  .logo {
+    width: 30%;
+    margin: 5% 0 0 5%;
+    display: none;
+  }
+  .nav {
+    background: #303136cf;
+    height: 100%;
+    width: 100%;
+    // justify-content: start;
+    top: 0;
+    margin: 0;
+    display: none;
+  }
+  .slide {
+    overflow-y: auto;
+    position: static;
+    padding: 4rem 0;
+    border-bottom: 1px solid $white;
+  }
+  .slide:last-child {
+    border: 0;
+  }
+  .slide-wrapper {
+    height: auto;
+  }
+  .main {
+    height: 100vh;
+    background-size: cover;
+    padding: 150px 15px;
+    display: flex;
+    justify-content: center;
+    .title {
+      margin: 0;
+      text-align: center;
+    }
+  }
+  .about-us {
+    background-size: cover;
+    .text {
+			width: 90%;
+			font-size: 1.2rem;
+    }
+  }
+  .services {
+    background-size: cover;
+    background-position: center;
+    .serv-list {
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      .serv-item {
+        width: 70%;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+      }
+    }
+    .modal-wrapper {
+      transform: scaleY(0);
+      position: fixed;
+      top: 0;
+      padding-top: 70px;
+      height: 100%;
+    }
+    .show-modal {
+      transform: scaleY(1);
+    }
+    .modal-container {
+      height: 100%;
+      overflow-y: auto;
+      padding: 1rem 1rem 2rem 2rem;
+      position: relative;
+    }
+    .modal-closer {
+      position: sticky;
+      top: 0;
+      left: 100%;
+    }
+    .content-wrapper {
+      display: block;
+    }
+    .modal-text {
+      width: 100%;
+    }
+    .service-list {
+      display: block;
+    }
+    .service-col {
+      width: 100%;
+      margin-bottom: 20px;
+    }
+    .outsource .service-col:first-child {
+      margin: 0;
+    }
+    .modal-member {
+      width: 100%;
+    }
+  }
+  .career {
+    background-size: cover;
+    background-position: center;
+    flex-flow: column-reverse;
+    .career-img {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      margin: 0;
+      img {
+        display: none;
+      }
+      .form-group {
+        width: 50%;
+        form {
+          flex-direction: column;
+          .btn-tertiary {
+            width: 100%;
+            margin-bottom: 2rem;
+          }
+          .button {
+            width: 100%;
+            padding: 0.833rem 0;
+          }
+        }
+      }
+    }
+    .career-content {
+      width: 90%;
+      margin-bottom: 5rem;
+      .slide-title {
+        align-items: center;
+        margin-bottom: 2.222rem;
+      }
+    }
+  }
+  .accredit {
+    background-size: cover;
+    background-position: center;
+    .org-list {
+      width: 80%;
+      .org-list-item {
+        width: 50%;
+      }
+    }
+    .membership {
+      .memb-list {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        width: 80%;
+        .memb-list-item {
+          width: 50%;
+          margin-bottom: 2rem;
+          &:last-child {
+            margin: auto;
+          }
         }
       }
     }
   }
-  .accredit .org-list {
-    width: 64%;
-	}
-	.accredit .membership .memb-list {
-		width: 64%;
-	}
+  .commerc {
+    .contact-form {
+      width: 90%;
+      .input-container {
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        .contact-form__input-wrapper {
+          width: 100%;
+        }
+      }
+      .chechbox-container {
+        .checkbox-label {
+          width: 40%;
+          margin-bottom: 30px;
+          -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        }
+      }
+    }
+  }
+  .contacts {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    position: relative;
+    font-size: 1.3rem;
+    iframe {
+      height: 300px;
+    }
+    .contact-info {
+      position: static;
+      height: auto;
+      background-color: #303136cf;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      .contact-info-container {
+        width: 90%;
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 3.333rem;
+        h2 {
+          font-size: 1.6rem;
+          line-height: 1.7rem;
+          margin-bottom: 1.4rem;
+        }
+        p {
+          line-height: 1.389rem;
+          margin-bottom: 1.667rem;
+        }
+        a {
+          font-size: 1.3rem;
+          line-height: 1.5rem;
+          color: $white;
+          text-decoration: none;
+				}
+			
+        .col1 {
+          width: 100%;
+          margin-bottom: 1.667rem;
+          img {
+						width: 41%;
+            margin-bottom: 1.389rem;
+          }
+        }
+        .col2 {
+					width: 100%;
+					a{
+						text-decoration: underline;
+					}
+        }
+        .col3 {
+					margin-bottom: 1.667rem;
+          width: 100%;
+					margin-top: 1.667rem;
+					.info-title {
+						margin: 0 0 10px 0;
+						font-weight: 500;
+						line-height: 2rem;
+					}
+        }
+      }
+      .bsnsweb {
+        background-color: #303136cf;
+        height: auto;
+        padding: 10px;
+      }
+    }
+  }
 }
-
-

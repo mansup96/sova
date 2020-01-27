@@ -1,4 +1,20 @@
+// //////// for max-width 768px ///////////
+// window.addEventListener("resize", function() {
+//   if (window.screen.availWidth < 768) {
+//     let slideWrapper = document.querySelector(".slide-wrapper");
+
+//     slideWrapper.classList.add("slide-wrapper-mobile");
+
+//     slides.forEach(elem => {
+//       elem.classList.add("slide-mobile");
+// 		});
+// 		console.log(window.screen.availWidth);
+
+//   }
+// });
+
 $(function() {
+	
   $("#form-commerc").on("submit", function(e) {
     e.preventDefault();
     $.ajax({
@@ -82,78 +98,83 @@ slides.forEach(element => {
   zIndex++;
 });
 
+
 footerMapItems.forEach(elem => {
-  elem.addEventListener("click", () => {
-    let attr = elem.getAttribute("link-to");
-    let curSlide = document.querySelector(`.slide[name='${attr}']`);
-    slides.forEach(slide => {
-      if (
-        slide.style.zIndex <= curSlide.style.zIndex &&
-        activeSlide <= curSlide.style.zIndex
-      )
-        slide.classList.add("to-top");
-    });
-    sortToBottom(curSlide);
-    activeSlide = parseInt(curSlide.style.zIndex);
-    navItemColorChange(curSlide);
-    changeNavPos();
-  });
+	elem.addEventListener("click", () => {
+		let attr = elem.getAttribute("link-to");
+		let curSlide = document.querySelector(`.slide[name='${attr}']`);
+		slides.forEach(slide => {
+			if (
+				slide.style.zIndex <= curSlide.style.zIndex &&
+				activeSlide <= curSlide.style.zIndex
+			)
+				slide.classList.add("to-top");
+		});
+		sortToBottom(curSlide);
+		activeSlide = parseInt(curSlide.style.zIndex);
+		navItemColorChange(curSlide);
+		changeNavPos();
+	});
 });
 
 menuItems.forEach(elem => {
-  elem.addEventListener("click", () => {
-    let attr = elem.getAttribute("link-to");
-    let curSlide = document.querySelector(`.slide[name='${attr}']`);
-    slides.forEach(slide => {
-      if (
-        slide.style.zIndex <= curSlide.style.zIndex &&
-        activeSlide <= curSlide.style.zIndex
-      )
-        slide.classList.add("to-top");
-    });
-    sortToBottom(curSlide);
-    activeSlide = parseInt(curSlide.style.zIndex);
-    navItemColorChange(curSlide);
-    changeNavPos();
-  });
+	elem.addEventListener("click", () => {
+		let attr = elem.getAttribute("link-to");
+		let curSlide = document.querySelector(`.slide[name='${attr}']`);
+		slides.forEach(slide => {
+			if (
+				slide.style.zIndex <= curSlide.style.zIndex &&
+				activeSlide <= curSlide.style.zIndex
+			)
+				slide.classList.add("to-top");
+		});
+		sortToBottom(curSlide);
+		activeSlide = parseInt(curSlide.style.zIndex);
+		navItemColorChange(curSlide);
+		changeNavPos();
+	});
 });
 
-// Функция для добавления обработчика событий
-function addHandler(object, event, handler) {
-  if (object.addEventListener) {
-    object.addEventListener(event, handler, false);
-    // } else if (object.attachEvent) {
-    //   object.attachEvent("on" + event, handler);
-  } else alert("Обработчик не поддерживается");
-}
-function removeHandler(object, event, handler) {
-  object.removeEventListener(event, handler, false);
-}
-// Добавляем обработчики для разных браузеров
-addHandler(window, "DOMMouseScroll", wheel);
-// addHandler(window, "mousewheel", wheel);
-addHandler(document, "mousewheel", wheel);
-// Функция, обрабатывающая событие
-function wheel(event) {
-  let delta; // Направление колёсика мыши
-  event = event || window.event;
-  // Opera и IE работают со свойством wheelDelta
-  if (event.wheelDelta) {
-    // В Opera и IE
-    delta = event.wheelDelta / 120;
-    // В Опере значение wheelDelta такое же, но с противоположным знаком
-    if (window.opera) delta = -delta; // Дополнительно для Opera
-  } else if (event.detail) {
-    // Для Gecko
-    delta = -event.detail / 3;
+  // Функция для добавления обработчика событий
+  function addHandler(object, event, handler) {
+    if (object.addEventListener) {
+      object.addEventListener(event, handler, false);
+      // } else if (object.attachEvent) {
+      //   object.attachEvent("on" + event, handler);
+    } else alert("Обработчик не поддерживается");
   }
-  // Запрещаем обработку события браузером по умолчанию
-  if (delta < 0) {
-    flipDown();
+  function removeHandler(object, event, handler) {
+    object.removeEventListener(event, handler, false);
   }
-  if (delta > 0 && activeSlide > 0) {
-    flipUp();
+  // Добавляем обработчики для разных браузеров
+  addHandler(window, "DOMMouseScroll", wheel);
+  // addHandler(window, "mousewheel", wheel);
+  addHandler(document, "mousewheel", wheel);
+  // Функция, обрабатывающая событие
+  function wheel(event) {
+    let delta; // Направление колёсика мыши
+    event = event || window.event;
+    // Opera и IE работают со свойством wheelDelta
+    if (event.wheelDelta) {
+      // В Opera и IE
+      delta = event.wheelDelta / 120;
+      // В Опере значение wheelDelta такое же, но с противоположным знаком
+      if (window.opera) delta = -delta; // Дополнительно для Opera
+    } else if (event.detail) {
+      // Для Gecko
+      delta = -event.detail / 3;
+    }
+		// Запрещаем обработку события браузером по умолчанию
+		flipping(delta)
   }
+
+function flipping(delta) {
+	if (delta < 0) {
+		flipDown();
+	}
+	if (delta > 0 && activeSlide > 0) {
+		flipUp();
+	}
 }
 
 document.addEventListener("keydown", flipByButtons, false);
@@ -228,33 +249,50 @@ function sortToBottom(curSlide) {
   });
 }
 
-//////// service modal ///////////
-
-let servBtn = document.querySelectorAll(".serv-item");
-let modalWindow = document.querySelectorAll(".modal-wrapper");
-let closers = document.querySelectorAll(".modal-closer");
-let fixedEls = document.querySelectorAll(".fixed");
-
-servBtn.forEach((item, pos) => {
-  item.addEventListener("click", () => {
-    fixedEls.forEach(elem => {
-      elem.style.zIndex = -200;
-    });
-    let link = item.getAttribute("link-to");
-    let modal = document.querySelector(`.modal-wrapper[name='${link}']`);
-    modal.classList.add("show-modal");
-  });
-});
-
-closers.forEach((item, ind) => {
-  item.addEventListener("click", () => {
-    modalWindow.forEach(el => {
-      el.classList.remove("show-modal");
-    });
-    fixedEls.forEach(elem => {
-      elem.style.zIndex = 2000;
-    });
-  });
+////// for max-width 768px ///////////
+window.addEventListener("resize", () => {
+  if (window.screen.availWidth < 768) {
+		console.log(window.screen.availWidth);
+		removeHandler(window, "DOMMouseScroll", wheel);
+		removeHandler(document, "mousewheel", wheel);
+	}
+	if (window.screen.availWidth >= 768) {
+		footerMapItems.forEach(elem => {
+			elem.addEventListener("click", () => {
+				let attr = elem.getAttribute("link-to");
+				let curSlide = document.querySelector(`.slide[name='${attr}']`);
+				slides.forEach(slide => {
+					if (
+						slide.style.zIndex <= curSlide.style.zIndex &&
+						activeSlide <= curSlide.style.zIndex
+					)
+						slide.classList.add("to-top");
+				});
+				sortToBottom(curSlide);
+				activeSlide = parseInt(curSlide.style.zIndex);
+				navItemColorChange(curSlide);
+				changeNavPos();
+			});
+		});
+	
+		menuItems.forEach(elem => {
+			elem.addEventListener("click", () => {
+				let attr = elem.getAttribute("link-to");
+				let curSlide = document.querySelector(`.slide[name='${attr}']`);
+				slides.forEach(slide => {
+					if (
+						slide.style.zIndex <= curSlide.style.zIndex &&
+						activeSlide <= curSlide.style.zIndex
+					)
+						slide.classList.add("to-top");
+				});
+				sortToBottom(curSlide);
+				activeSlide = parseInt(curSlide.style.zIndex);
+				navItemColorChange(curSlide);
+				changeNavPos();
+			});
+		});
+	}
 });
 
 //////// Change Nav position for Contacts slide ///////////
@@ -272,3 +310,36 @@ function changeNavPos() {
     logo.classList.remove("dissappear");
   }
 }
+
+//////// service modal ///////////
+
+let servBtn = document.querySelectorAll(".serv-item");
+let modalWindow = document.querySelectorAll(".modal-wrapper");
+let closers = document.querySelectorAll(".modal-closer");
+let fixedEls = document.querySelectorAll(".fixed");
+
+servBtn.forEach(item => {
+  item.addEventListener("click", () => {
+		removeHandler(window, "DOMMouseScroll", wheel);
+		removeHandler(document, "mousewheel", wheel);
+    fixedEls.forEach(elem => {
+      elem.style.zIndex = -200;
+    });
+    let link = item.getAttribute("link-to");
+    let modal = document.querySelector(`.modal-wrapper[name='${link}']`);
+    modal.classList.add("show-modal");
+  });
+});
+
+closers.forEach(item => {
+  item.addEventListener("click", () => {
+		addHandler(window, "DOMMouseScroll", wheel);
+    addHandler(document, "mousewheel", wheel);
+    modalWindow.forEach(el => {
+      el.classList.remove("show-modal");
+    });
+    fixedEls.forEach(elem => {
+      elem.style.zIndex = 2000;
+    });
+  });
+})

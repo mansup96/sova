@@ -10,8 +10,9 @@
   transition: 0.3s;
 }
 .show-modal {
-  z-index: 2000;
+  z-index: 50000;
   opacity: 1;
+  transform: scaleY(1);
 }
 .modal-container {
   width: 100%;
@@ -64,7 +65,7 @@
     font-size: 1rem;
     line-height: 1.778rem;
     margin-bottom: 1.111rem;
-    width: 48%;
+    width: 100%;
   }
 }
 .service-item {
@@ -84,10 +85,9 @@
     height: 0.6667rem;
   }
 }
-.learn .service-col:nth-child(2) {
-  margin-top: -40px;
+.spec {
   h3 {
-    margin: 20px 0;
+    margin: 1.111rem 0;
   }
 }
 .modal-member {
@@ -98,8 +98,8 @@
   width: 43%;
   height: 100%;
   img {
-		margin-bottom: 2.222rem;
-		width: 20%;
+    margin-bottom: 2.222rem;
+    width: 20%;
   }
   .member-name {
     font-weight: 900;
